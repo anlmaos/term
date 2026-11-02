@@ -153,6 +153,14 @@ ColumnLayout {
                 }
             }
             Label {
+                text: qsTr("Smooth Scrolling")
+            }
+            CheckBox {
+                checked: appSettings.smoothScrolling
+                onCheckedChanged: appSettings.smoothScrolling = checked
+                Layout.fillWidth: true
+            }
+            Label {
                 text: qsTr("Line Spacing")
             }
             RowLayout {

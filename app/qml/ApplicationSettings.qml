@@ -52,6 +52,7 @@ QtObject {
     property real burnInQuality: 0.5
 
     property bool blinkingCursor: false
+    property bool smoothScrolling: true
 
 
     // PROFILE SETTINGS ///////////////////////////////////////////////////////
@@ -167,7 +168,8 @@ QtObject {
             "bloomQuality": bloomQuality,
             "burnInQuality": burnInQuality,
             "useCustomCommand": useCustomCommand,
-            "customCommand": customCommand
+            "customCommand": customCommand,
+            "smoothScrolling": smoothScrolling
         }
         return stringify(settings)
     }
@@ -261,6 +263,8 @@ QtObject {
                 !== undefined ? settings.useCustomCommand : useCustomCommand
         customCommand = settings.customCommand
                 !== undefined ? settings.customCommand : customCommand
+
+        smoothScrolling = settings.smoothScrolling !== undefined ? settings.smoothScrolling : smoothScrolling
     }
 
     function loadProfileString(profileString) {

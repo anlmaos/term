@@ -116,6 +116,7 @@ Item{
 
         fullCursorHeight: true
         blinkingCursor: appSettings.blinkingCursor
+        smoothScrolling: appSettings.smoothScrolling
 
         colorScheme: "cool-retro-term"
 
