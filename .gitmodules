@@ -1,7 +1,7 @@
 [submodule "qmltermwidget"]
 	path = qmltermwidget
-	url = https://github.com/Swordfish90/qmltermwidget
-	branch = unstable
+	url = https://github.com/7n1m4/qmltermwidget
+	branch = smooth-scroll
 [submodule "KDSingleApplication"]
 	path = KDSingleApplication
 	url = https://github.com/KDAB/KDSingleApplication.git
