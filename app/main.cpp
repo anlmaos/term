@@ -131,10 +131,15 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("fileIO", &fileIO);
 
     // Manage import paths for Linux and OSX.
-    QStringList importPathList = engine.importPathList();
+    // Prepend our own module locations so a stale system-installed
+    // QMLTermWidget (e.g. /usr/lib/qt6/qml) can never shadow the build tree.
+    QStringList importPathList;
     importPathList.append(QCoreApplication::applicationDirPath() + "/qmltermwidget");
     importPathList.append(QCoreApplication::applicationDirPath() + "/../PlugIns");
     importPathList.append(QCoreApplication::applicationDirPath() + "/../../../qmltermwidget");
+    const QStringList defaultPaths = engine.importPathList();
+    for (const QString &path : defaultPaths)
+        importPathList.append(path);
     engine.setImportPathList(importPathList);
 
     engine.load(QUrl(QStringLiteral ("qrc:/main.qml")));
